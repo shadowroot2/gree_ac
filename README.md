@@ -6,6 +6,7 @@ To make it work you should initialize connection to Gree+ with getting secret-ke
 1. Press Mode + WiFi button on remote of Gree AC (AC must beep once) and wait 2 minutes (AC will go to WiFi access point mode).
 2. Search Wifi AP with name like: f4211ede6d31 and connect your PC to it (WiFi password is: 12345678)
 3. Write simple script like finder.php: 
+```php
 <?php
   require_once 'vendor/autoload.php';
 
@@ -14,6 +15,7 @@ To make it work you should initialize connection to Gree+ with getting secret-ke
   
   print_r($gree->scan());
 ?>
+```
 4. Run from console "php finder.php" you will see response: 
 ```php
 Array
@@ -43,9 +45,27 @@ Array
   $gree->setDebug(true); // If you want to see all
   $gree->setCID('f4211ede6d31'); // Replace to your own cid
   
-  echo $gree->getBindKey();
+  $key = $gree->getBindKey();
+  
+  echo 'Secure key is: '.$key;
 ?>
 ```
 7. Run from console "php bind.php" you will see response: 
+Secure key is: Lz5Op8Rs2Uv4Xy5A
+8. Save this key to somewhere
+9. Add AC to Gree+ app (it will add it to your WiFi router)
+10. Get IP adress of AC from your WiFi router (for example it 192.168.10.3)
+11. Write simple script like test.php:
+```php
+<?php
+  require_once 'vendor/autoload.php';
 
-
+  $gree = new \Gree\GreeAC('192.168.10.3', 'f4211ede6d31', 'Lz5Op8Rs2Uv4Xy5A'); // Replace values to yours
+  $gree->setDebug(true); // If you want to see all
+  
+  print_r($gree->status()); // Will show current settings
+  print_r($gree->on()); // Switch on AC
+  sleep(3);
+  print_r($gree->off()); // Switch on AC
+  // ...etc
+?>
