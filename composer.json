@@ -5,7 +5,7 @@
     "license": "Free",
     "autoload": {
         "psr-4": {
-            "Gree": "src/"
+            "Gree\\": "src/"
         }
     },
     "authors": [
