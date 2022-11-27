@@ -1,2 +1,2 @@
-# gree_ac
-API to controll Gree AC with WiFi
+# Gree AC PHP API
+API to controll Gree AC with WiFi by network
