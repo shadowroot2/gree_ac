@@ -15,6 +15,7 @@ To make it work you should initialize connection to Gree+ with getting secret-ke
   print_r($gree->scan());
 ?>
 4. Run from console "php finder.php" you will see response: 
+```php
 Array
 (
     [t] => dev
@@ -31,8 +32,10 @@ Array
     [ver] => V1.1.13
     [lock] => 0
 )
+```
 5. Copy cid to somewhere
-6. To get bind key (secure key) write script like bind.php
+6. To get bind key (secure key) write script like bind.php:
+```
 <?php
   require_once 'vendor/autoload.php';
 
@@ -42,6 +45,7 @@ Array
   
   echo $gree->getBindKey();
 ?>
+```
 7. Run from console "php bind.php" you will see response: 
 
 
