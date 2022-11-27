@@ -2,7 +2,7 @@
     "name": "shadowroot2/gree_ac",
     "description": "API for control Gree AC with WiFi module",
     "type": "library",
-    "license": "GNU",
+    "license": "BSD-3-Clause",
     "autoload": {
         "psr-4": {
             "Gree\\": "src/"
