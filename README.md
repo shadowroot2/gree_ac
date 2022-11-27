@@ -37,7 +37,7 @@ Array
 ```
 5. Copy cid to somewhere
 6. To get bind key (secure key) write script like bind.php:
-```
+```php
 <?php
   require_once 'vendor/autoload.php';
 
@@ -66,6 +66,6 @@ Secure key is: Lz5Op8Rs2Uv4Xy5A
   print_r($gree->status()); // Will show current settings
   print_r($gree->on()); // Switch on AC
   sleep(3);
-  print_r($gree->off()); // Switch on AC
+  print_r($gree->off()); // Switch off AC
   // ...etc
 ?>
