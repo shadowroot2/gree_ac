@@ -89,7 +89,7 @@
         final function setHost(string $host) : void
         {
             if(!filter_var($host, FILTER_VALIDATE_IP))
-                throw new InvalidArgumentException(__METHOD__ . ': incorrect IP format');
+                throw new InvalidArgumentException(__METHOD__ . ': Incorrect IP format');
 
             $this->_host = $host;
         }
@@ -104,8 +104,8 @@
          */
         final function setCID(string $cid) : void
         {
-            if(!filter_var($cid, FILTER_VALIDATE_REGEXP, [ 'options' => [ 'regexp' => '/^[0-9a-z]{12}$/' ] ]))
-                throw new Exception(__METHOD__ . ': incorrect cid format');
+            if(!filter_var($cid, FILTER_VALIDATE_REGEXP, [ 'options' => [ 'regexp' => '/^[0-9a-z]{12}$/i' ] ]))
+                throw new Exception(__METHOD__ . ': Incorrect cid format');
 
             $this->_cid = $cid;
         }
@@ -121,7 +121,7 @@
         final function setSecKey(string $sec_key) : void
         {
             if(!filter_var($sec_key, FILTER_VALIDATE_REGEXP, [ 'options' => [ 'regexp' => '/^[0-9a-zA-Z]{16}$/' ] ]))
-                throw new Exception(__METHOD__ . ': incorrect key format');
+                throw new Exception(__METHOD__ . ': Incorrect key format');
 
             $this->_sec_key = $sec_key;
         }
@@ -141,7 +141,7 @@
             if(!isset($response['pack']))
                 throw new Exception('No GreeAC found :(', 404);
 
-            # Устанавливаем CID
+            # Setting CID
             if(isset($response['pack']['mac']))
                 $this->setCID($response['pack']['mac']);
 
@@ -170,9 +170,9 @@
                 ]
             ], false);
 
-            # Проверяем наличие ключа
+            # Check response value
             if(!isset($response['pack']['key']))
-                throw new Exception(__METHOD__ . ': can not get sec-key from response: ' . print_r($response, true));
+                throw new Exception(__METHOD__ . ': Can not get sec-key from response: ' . print_r($response, true));
 
             # Remember the key
             $this->setSecKey($response['pack']['key']);
@@ -556,10 +556,10 @@
                 # Reading JSON response from socket
                 $json_response = fread($fp, 1024);
 
-                # Ответ - строка?
+                # Is it string?
                 if(is_string($json_response))
                 {
-                    # Декодируем запрос
+                    # Decrypting response
                     $response = json_decode($json_response, true);
 
                     # Socket connection close
