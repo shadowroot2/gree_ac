@@ -1,5 +1,5 @@
 # Gree AC PHP API
-API to controll Gree AC with WiFi by network
+API to control Gree AC with WiFi by network
 
 To make it work you should initialize connection to Gree+ with getting secret-key witch generating every time when you reset WiFi on Gree AC.
 
@@ -54,7 +54,7 @@ Array
 Secure key is: Lz5Op8Rs2Uv4Xy5A
 8. Save this key to somewhere
 9. Add AC to Gree+ app (it will add it to your WiFi router)
-10. Get IP adress of AC from your WiFi router (for example it 192.168.10.3)
+10. Get IP address of AC from your WiFi router (for example it 192.168.10.3)
 11. Write simple script like test.php:
 ```php
 <?php
