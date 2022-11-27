@@ -104,7 +104,7 @@
          */
         final function setCID(string $cid) : void
         {
-            if(!filter_var($cid, FILTER_VALIDATE_REGEXP, [ 'options' => [ 'regexp' => '/^[0-9a-z]{12}$/i' ] ]))
+            if(!filter_var($cid, FILTER_VALIDATE_REGEXP, [ 'options' => [ 'regexp' => '/^[0-9a-z]{12}$/' ] ]))
                 throw new Exception(__METHOD__ . ': Incorrect cid format');
 
             $this->_cid = $cid;
