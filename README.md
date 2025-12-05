@@ -1,4 +1,4 @@
-# Gree AC PHP API
+# Gree AC API
 API to control Gree AC with WiFi by network
 
 To make it work you should initialize connection to Gree+ with getting secret-key witch generating every time when you reset WiFi on Gree AC.
